@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 02:19:24 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/25 15:59:38 by aassaf           ###   ########.fr       */
+/*   Created: 2023/11/25 15:28:06 by aassaf            #+#    #+#             */
+/*   Updated: 2023/11/25 15:28:36 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd(char c, int fd)
+size_t	ft_strlen(const char *s)
 {
-	if (fd < 0)
-		return (0);
-	return (write(fd, &c, 1));
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
 }
