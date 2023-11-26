@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_print_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 02:28:56 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/26 15:48:19 by aassaf           ###   ########.fr       */
+/*   Created: 2023/11/26 12:14:09 by aassaf            #+#    #+#             */
+/*   Updated: 2023/11/26 19:44:03 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_print_x(unsigned int)
 {
-	int count;
-
-	count = 0;
-	if (fd < 0 || s == NULL)
-		return (-1);
-	if(s == NULL)
-		return (write(fd,"(null)",6));
-	while (*s)
-	{
-		if(ft_putchar_fd(*s++, fd) == -1)
-			return (-1);
-		count++;
-	}
-	return (count);
+	
 }

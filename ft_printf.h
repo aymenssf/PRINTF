@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:42:07 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/24 13:42:01 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/26 15:02:00 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 # include <stdarg.h>
 
 
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
-int ft_printf(const char *, ...);
+int				ft_putchar_fd(char c, int fd);
+int				ft_putstr_fd(char *s, int fd);
+int				ft_putnbr_fd(int n, int fd);
+size_t				ft_strlen(const char *s);
+int ft_printf(const char *s, ...);
 #endif

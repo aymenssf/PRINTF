@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 02:19:24 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/25 15:59:38 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/26 09:44:39 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_putchar_fd(char c, int fd)
 {
 	if (fd < 0)
-		return (0);
+		return (-1);
 	return (write(fd, &c, 1));
 }
