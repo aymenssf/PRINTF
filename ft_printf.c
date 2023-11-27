@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:41:47 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/26 15:50:04 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/27 20:34:01 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static int checkf(const char *spec, va_list ap)
 		count += ft_putstr_fd((va_arg(ap, char *)), 1);
 	else if(*spec == 'd' || *spec == 'i')
 		count += ft_putnbr_fd((va_arg(ap, int)), 1);
-	// else if(*spec == 'p')
-	// 	count += ft_print_p((va_arg(ap, char *)));
-	// else if(*spec == 'x'|| *spec == 'x')
-	// 	count += ft_printf_x((va_arg(ap, unsigned int)), 1);
-	// else if(*spec == 'u')
-	// 	count += ft_printf_u((va_arg(ap, unsigned int)), 1);
+	 else if(*spec == 'p')
+	 	count += ft_print_pp((va_arg(ap, void *)));
+	else if (*spec == 'x' || *spec == 'X')
+    	count += ft_print_x(va_arg(ap, unsigned int), (*spec == 'X'));
+	else if(*spec == 'u')
+		count += ft_print_u((va_arg(ap, unsigned int)), 1);
 	else if(*spec == '%')
 		count += ft_putchar_fd('%', 1);
 	else if(*spec == '\0')
@@ -52,10 +52,13 @@ int ft_printf(const char *s, ...)
 	}
 	return (count);
 }
-
+#include <limits.h>
 int main()
 {
-	int count = 0;
-	count = ft_printf("%s\n", "%%");
-	ft_printf("%d", count);
+	// int count = 42;
+	// count = ft_printf("%s\n", "%%");
+	char *a = "ss";
+	// ft_printf("%p   ", a);
+	printf("%s\n", NULL);
+	ft_printf("%s\n", NULL);
 }

@@ -2,5 +2,8 @@
 #include <stdio.h>
 int main()
 {
-	printf(NULL);
+	int a = 3;
+	char *str = "12";
+	str[a - 4] = 'c';
+	printf("%c",str[a - 4]);
 }

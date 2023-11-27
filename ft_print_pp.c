@@ -1,50 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_x.c                                       :+:      :+:    :+:   */
+/*   ft_print_pp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 12:14:09 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/27 20:29:38 by aassaf           ###   ########.fr       */
+/*   Created: 2023/11/26 12:14:06 by aassaf            #+#    #+#             */
+/*   Updated: 2023/11/27 20:17:45 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	len(unsigned int n)
+static int	len(uintptr_t ptr)
 {
 	int	len;
 
 	len = 0;
-	while (n != 0)
+	while (ptr != 0)
 	{
-		n /= 16;
+		ptr /= 16;
 		len++;
 	}
 	return (len);
 }
 
-int	ft_print_x(unsigned int n, int isupp)
+int	ft_print_pp(void *p)
 {
-	int	size;
-	char	*hexarr;
-	char	*hex;
+	int			size;
+	char		*hexarr;
+	char		*hex;
+	uintptr_t	adr;
+	int			n;
 
+	adr = (uintptr_t)p;
 	hex = "0123456789abcedf";
-    if (isupp)
-        hex = "0123456789ABCDEF";
-	size = len(n);
+	size = len(adr);
+	if (!adr)
+		return (ft_putstr_fd("0x0", 1));
 	hexarr = (char *)malloc(size + 1);
 	if (!hexarr)
 		return (-1);
+	write(1, "0x", 2);
 	hexarr[size] = '\0';
 	while (size > 0)
 	{
 		size--;
-		hexarr[size] = hex[n % 16];
-		n = n / 16;
+		n = adr % 16;
+		hexarr[size] = hex[n];
+		adr /= 16;
 	}
-	free(hexarr);
 	return (ft_putstr_fd(hexarr, 1));
+	free(hexarr);
 }
