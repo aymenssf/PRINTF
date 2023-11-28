@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:41:47 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/28 11:15:18 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/28 19:10:31 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	ft_printf(const char *s, ...)
 	}
 	return (count);
 }
-// #include <limits.h>
-// int main()
-// {
-// 	// int count = 42;
-// 	// count = ft_printf("%s\n", "%%");
-// 	char *a = "ss";
-// 	ft_printf("%x \n", 0);
-// 	printf("%x ", 0);
-// }
+#include <limits.h>
+int main()
+{
+	// count = ft_printf("%s\n", "%%");
+	char *s = "ddddss";
+	ft_printf("%p\n", s);
+	printf("%p", s);
+	printf("yhe real number %p", s);
+}
