@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 13:21:10 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/26 13:28:46 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/28 09:47:47 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_putnbr_fd(int n, int fd)
 {
+	int	count;
+
 	if (fd < 0)
 		return (-1);
-	int count;
-
 	count = 0;
 	if (n == -2147483648)
 	{

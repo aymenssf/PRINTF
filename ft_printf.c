@@ -6,45 +6,46 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:41:47 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/27 20:34:01 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:15:18 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int checkf(const char *spec, va_list ap)
+static int	checkf(const char *spec, va_list ap)
 {
-	int count;
+	int	count;
 
 	count = 0;
-	if(*spec == 'c')
+	if (*spec == 'c')
 		count += ft_putchar_fd((va_arg(ap, int)), 1);
-	else if(*spec == 's')
+	else if (*spec == 's')
 		count += ft_putstr_fd((va_arg(ap, char *)), 1);
-	else if(*spec == 'd' || *spec == 'i')
+	else if (*spec == 'd' || *spec == 'i')
 		count += ft_putnbr_fd((va_arg(ap, int)), 1);
-	 else if(*spec == 'p')
-	 	count += ft_print_pp((va_arg(ap, void *)));
+	else if (*spec == 'p')
+		count += ft_print_pp((va_arg(ap, void *)));
 	else if (*spec == 'x' || *spec == 'X')
-    	count += ft_print_x(va_arg(ap, unsigned int), (*spec == 'X'));
-	else if(*spec == 'u')
+		count += ft_print_x(va_arg(ap, unsigned int), (*spec == 'X'));
+	else if (*spec == 'u')
 		count += ft_print_u((va_arg(ap, unsigned int)), 1);
-	else if(*spec == '%')
+	else if (*spec == '%')
 		count += ft_putchar_fd('%', 1);
-	else if(*spec == '\0')
+	else if (*spec == '\0')
 		count += ft_putchar_fd(*spec, 1);
 	return (count);
 }
-int ft_printf(const char *s, ...)
+
+int	ft_printf(const char *s, ...)
 {
-	va_list ap;
-	int	count;
+	va_list	ap;
+	int		count;
 
 	va_start(ap, s);
 	count = 0;
-	while(*s != '\0')
+	while (*s != '\0')
 	{
-		if(*s == '%')
+		if (*s == '%')
 			count += checkf(++s, ap);
 		else
 			count += write(1, s, 1);
@@ -52,13 +53,12 @@ int ft_printf(const char *s, ...)
 	}
 	return (count);
 }
-#include <limits.h>
-int main()
-{
-	// int count = 42;
-	// count = ft_printf("%s\n", "%%");
-	char *a = "ss";
-	// ft_printf("%p   ", a);
-	printf("%s\n", NULL);
-	ft_printf("%s\n", NULL);
-}
+// #include <limits.h>
+// int main()
+// {
+// 	// int count = 42;
+// 	// count = ft_printf("%s\n", "%%");
+// 	char *a = "ss";
+// 	ft_printf("%x \n", 0);
+// 	printf("%x ", 0);
+// }
