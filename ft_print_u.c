@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 12:14:12 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/27 13:29:22 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/28 09:47:34 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_print_u(unsigned int n, int fd)
 {
-	if (fd < 0)
-	return (-1);
-	int count;
+	int	count;
 
+	if (fd < 0)
+		return (-1);
 	count = 0;
 	if (n >= 0 && n < 10)
 		count += ft_putchar_fd((n + '0'), fd);
