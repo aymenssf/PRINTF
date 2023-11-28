@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 12:14:06 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/27 20:17:45 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:21:18 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ int	ft_print_pp(void *p)
 	char		*hexarr;
 	char		*hex;
 	uintptr_t	adr;
-	int			n;
 
 	adr = (uintptr_t)p;
-	hex = "0123456789abcedf";
+	hex = "0123456789abcdef";
 	size = len(adr);
 	if (!adr)
 		return (ft_putstr_fd("0x0", 1));
@@ -46,10 +45,10 @@ int	ft_print_pp(void *p)
 	while (size > 0)
 	{
 		size--;
-		n = adr % 16;
-		hexarr[size] = hex[n];
+		hexarr[size] = hex[adr % 16];
 		adr /= 16;
 	}
-	return (ft_putstr_fd(hexarr, 1));
+	ft_putstr_fd(hexarr, 1);
 	free(hexarr);
+	return (2 + len((uintptr_t)p));
 }
