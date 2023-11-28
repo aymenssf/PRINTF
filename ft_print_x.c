@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 12:14:09 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/27 20:29:38 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:22:21 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,17 @@ static int	len(unsigned int n)
 
 int	ft_print_x(unsigned int n, int isupp)
 {
-	int	size;
+	int		size;
 	char	*hexarr;
 	char	*hex;
+	int		hexreturn ;
 
-	hex = "0123456789abcedf";
-    if (isupp)
-        hex = "0123456789ABCDEF";
+	hex = "0123456789abcdef";
+	if (isupp)
+		hex = "0123456789ABCDEF";
 	size = len(n);
+	if (n == 0)
+		return (ft_putchar_fd('0', 1));
 	hexarr = (char *)malloc(size + 1);
 	if (!hexarr)
 		return (-1);
@@ -45,6 +48,7 @@ int	ft_print_x(unsigned int n, int isupp)
 		hexarr[size] = hex[n % 16];
 		n = n / 16;
 	}
+	hexreturn = ft_putstr_fd(hexarr, 1);
 	free(hexarr);
-	return (ft_putstr_fd(hexarr, 1));
+	return (hexreturn);
 }
