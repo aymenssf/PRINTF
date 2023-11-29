@@ -6,13 +6,13 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 12:14:09 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/28 14:36:58 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/29 12:20:54 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	len(unsigned int n)
+static int	len(unsigned long n)
 {
 	int	len;
 
@@ -25,7 +25,7 @@ static int	len(unsigned int n)
 	return (len);
 }
 
-int	ft_print_x(unsigned int n, int isupp)
+int	ft_print_x(unsigned long n, int isupp)
 {
 	int		size;
 	char	*hexarr;

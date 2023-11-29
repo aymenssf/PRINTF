@@ -6,7 +6,7 @@
 /*   By: aassaf <aassaf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 02:28:56 by aassaf            #+#    #+#             */
-/*   Updated: 2023/11/28 12:12:50 by aassaf           ###   ########.fr       */
+/*   Updated: 2023/11/29 14:24:01 by aassaf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,3 @@ int	ft_putstr_fd(char *s, int fd)
 	}
 	return (count);
 }
-/* int main()
-{
-	ft_putstr_fd("-1", 1);
-} */
