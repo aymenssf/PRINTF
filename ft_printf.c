@@ -55,6 +55,17 @@ int	ft_printf(const char *s, ...)
 	}
 	return (count);
 }
+// int	main(void)
+// {
+// 	int	i;
+// 	int	a;
+
+// 	i = ft_printf("%d=====%", 42);
+// 	printf("\n");
+// 	a = printf("%d=====%", 42);
+// 	printf("\nfake = %d \n", i);
+// 	printf("real = %d \n", a);
+// }
 // #include <limits.h>
 // int main()
 // {
